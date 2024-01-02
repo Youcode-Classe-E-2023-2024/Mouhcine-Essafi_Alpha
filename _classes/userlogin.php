@@ -13,7 +13,7 @@ class UserLogin
     {
         // Validate input data
         // || (!$this->validatePassword($password))
-        if ((!$this->validateEmail($email)) )  {
+        if ((!$this->validateEmail($email)) || (!$this->validatePassword($password)) )  {
             return "Invalid input data";
         }
 

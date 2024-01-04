@@ -1,17 +1,19 @@
 <?php
 // session_start();
-
-if (isset($_POST['submit_l'])) {
+// echo $_POST['log_email'];
+if (isset($_POST['log_email'])) {
     $userRegistration = new UserLogin($db);
     $registrationResult = $userRegistration->loginUser($_POST['log_email'], $_POST['log_password']);
-    // echo '<div class="alert">' . $registrationResult . '</div>';
+    // echo $registrationResult ;
     if (is_int($registrationResult) === true) {
-        header('location: index.php?page=home');
-        $_SESSION['id'] = $registrationResult;
-    }
-    else{
-        header('location: index.php?page=login');
-    
+        // header('location: index.php?page=home');
+        // echo $_POST['log_email'];
+        echo 'valide';
+        exit();
+    } else {
+        // header('location: index.php?page=login');
+        // echo $_POST['log_email'];
+        echo 'not valide';
+        exit();
     }
 }
-?>

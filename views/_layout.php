@@ -8,14 +8,23 @@
     <title><?= ucfirst($page) ?></title>
     <link rel="stylesheet" href="<?= PATH ?>assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 </head>
 <body>
+
 
     <main>
         <?php include_once 'views/' . $page . '_view.php'; ?>
     </main>
 
     <footer></footer>
-    <script src="<?= PATH ?>assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

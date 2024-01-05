@@ -1,4 +1,4 @@
-<div id="result-posts" class="container mx-auto mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+<!-- <div id="result-posts" class="container mx-auto mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
 
 <script>
     // Fetch and display posts
@@ -50,4 +50,43 @@ function createPostContainer(post) {
   return postContainer;
 }
 
+</script> -->
+
+
+<!-- Your HTML structure -->
+<div id="result-posts" class="container mx-auto mt-8">
+  <table id="posts-table" class="display">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script>
+  // Fetch and display posts
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Initialize DataTable
+      const dataTable = $('#posts-table').DataTable();
+
+      // Loop through the data and add rows to the table
+      data.forEach(post => {
+        dataTable.row.add([post.id, post.userId, post.title, post.body]).draw();
+      });
+    })
+    .catch(error => {
+      console.error('Error during posts API request', error);
+    });
 </script>

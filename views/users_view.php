@@ -22,34 +22,6 @@ fetch('https://jsonplaceholder.typicode.com/users')
     console.error('Error during users API request', error);
   });
 
-// Function to create a post container
-function createPostContainer(post) {
-  const postContainer = document.createElement('div');
-  postContainer.classList.add('bg-white', 'p-6', 'rounded', 'shadow-md');
-
-  const IdElement = document.createElement('p');
-  IdElement.textContent = `User ID: ${post.idd}`;
-  IdElement.classList.add('text-gray-600', 'mb-2');
-  postContainer.appendChild(IdElement);
-
-  const userIdElement = document.createElement('p');
-  userIdElement.textContent = `User ID: ${post.userId}`;
-  userIdElement.classList.add('text-gray-600', 'mb-2');
-  postContainer.appendChild(userIdElement);
-
-  const titleElement = document.createElement('h2');
-  titleElement.textContent = post.title;
-  titleElement.classList.add('text-xl', 'font-bold', 'mb-2');
-  postContainer.appendChild(titleElement);
-
-  const bodyElement = document.createElement('p');
-  bodyElement.textContent = post.body;
-  bodyElement.classList.add('text-gray-800');
-  postContainer.appendChild(bodyElement);
-
-  return postContainer;
-}
-
 // Function to create a user container
 function createUserContainer(user) {
   const userContainer = document.createElement('div');

@@ -48,23 +48,23 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-300 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <a href="index.php?page=home" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-300 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                             <span class="inline-flex justify-center items-center ml-4">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                                 </svg>
                             </span>
-                            <span class="ml-2 text-sm tracking-wide truncate">All recent tickets</span>
+                            <span class="ml-2 text-sm tracking-wide truncate">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-300 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                        <a href="index.php?page=Users" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-300 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
                             <span class="inline-flex justify-center items-center ml-4">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
                                 </svg>
                             </span>
-                            <span class="ml-2 text-sm tracking-wide truncate">Tickets to handle</span>
+                            <span class="ml-2 text-sm tracking-wide truncate">Users</span>
                             <span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
                         </a>
                     </li>
@@ -75,7 +75,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
                                 </svg>
                             </span>
-                            <span class="ml-2 text-sm tracking-wide truncate">My open tickets</span>
+                            <span class="ml-2 text-sm tracking-wide truncate">Posts</span>
                         </a>
                     </li>
 
@@ -94,17 +94,6 @@
                                 </svg>
                             </span>
                             <span class="ml-2 text-sm tracking-wide truncate">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-300 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-                            <span class="inline-flex justify-center items-center ml-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </span>
-                            <span class="ml-2 text-sm tracking-wide truncate">Settings</span>
                         </a>
                     </li>
                     <li>
@@ -127,7 +116,7 @@
             <main id="manageUsers_index" class="p-4">
                 <section class="flex justify-between mb-4">
                     <div class="text-2xl font-semibold">Posts</div>
-                    <a href="/ManageUsers/addUser" class="flex items-center bg-blue-500 text-white p-2 rounded-md">
+                    <a href="index.php?page=add_post" class="flex items-center bg-blue-500 text-white p-2 rounded-md">
                         <ion-icon name="pencil-outline" role="img" class="md:hydrated mr-2"></ion-icon>
                         <p>Add Post</p>
                     </a>
@@ -149,104 +138,9 @@
     </div>
 </div>
 
-<!-- <script>
-    var users = [];
-
-    function createAndAppendPost(post) {
-        const tableBody = document.getElementById('postTableBody');
-
-        const row = document.createElement('tr');
-
-        // Author
-        const authorCell = document.createElement('td');
-        authorCell.appendChild(document.createTextNode(users[post.userId - 1].username));
-
-        // Title
-        const titleCell = document.createElement('td');
-        titleCell.textContent = post.title;
-
-        // Id post
-        const Id_postCell = document.createElement('td');
-        Id_postCell.textContent = post.id;
-
-        // Body
-        const bodyCell = document.createElement('td');
-        bodyCell.textContent = post.body;
-
-        // Append cells to row
-        row.appendChild(authorCell);
-        row.appendChild(Id_postCell);
-        row.appendChild(titleCell);
-        row.appendChild(bodyCell);
-
-        // Append row to table body
-        tableBody.appendChild(row);
-    }
-
-    fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(dataPost => {
-            fetch('https://jsonplaceholder.typicode.com/users')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(dataUsers => {
-                    users = dataUsers;
-
-                    dataPost.forEach(post => {
-                        createAndAppendPost(post);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error during users API request', error);
-                });
-        })
-        .catch(error => {
-            console.error('Error during posts API request', error);
-        });
-</script> -->
-
 <script>
         var users = [];
 
-        function createAndAppendPost(post) {
-            const tableBody = document.getElementById('postTableBody');
-
-            const row = document.createElement('tr');
-
-            // Author
-            const authorCell = document.createElement('td');
-            authorCell.appendChild(document.createTextNode(users[post.userId - 1].username));
-
-            // Title
-            const titleCell = document.createElement('td');
-            titleCell.textContent = post.title;
-
-            // Id post
-            const Id_postCell = document.createElement('td');
-            Id_postCell.textContent = post.id;
-
-            // Body
-            const bodyCell = document.createElement('td');
-            bodyCell.textContent = post.body;
-
-            // Append cells to row
-            row.appendChild(authorCell);
-            row.appendChild(Id_postCell);
-            row.appendChild(titleCell);
-            row.appendChild(bodyCell);
-
-            // Append row to table body
-            tableBody.appendChild(row);
-        }
 
         $(document).ready(function () {
             // Initialize DataTable

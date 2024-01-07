@@ -136,10 +136,11 @@
                 <table id="result-posts" class="min-w-full bg-white border border-gray-300 shadow-md rounded-md overflow-hidden">
                     <thead class="bg-gray-200 text-gray-700">
                         <tr>
+                            <th>Author</th>
+                            <th>Idpost</th>
                             <th>Title</th>
                             <th>Body</th>
-                            <th>Author</th>
-                            <th>Email</th>
+                            <!-- <th>Email</th> -->
                         </tr>
                     </thead>
                     <tbody id="postTableBody"></tbody>
@@ -157,27 +158,33 @@
 
             const row = document.createElement('tr');
 
+            // Author
+            const authorCell = document.createElement('td');
+            authorCell.appendChild(document.createTextNode(users[post.userId - 1].username));
+
             // Title
             const titleCell = document.createElement('td');
             titleCell.textContent = post.title;
+
+            // Id post
+            const Id_postCell = document.createElement('td');
+            Id_postCell.textContent = post.id;
 
             // Body
             const bodyCell = document.createElement('td');
             bodyCell.textContent = post.body;
 
-            // Author
-            const authorCell = document.createElement('td');
-            authorCell.appendChild(document.createTextNode(users[post.userId - 1].username));
 
             // Email
             const emailCell = document.createElement('td');
             emailCell.textContent = users[post.userId - 1].email;
 
             // Append cells to row
+            row.appendChild(authorCell);
+            row.appendChild(Id_postCell);
             row.appendChild(titleCell);
             row.appendChild(bodyCell);
-            row.appendChild(authorCell);
-            row.appendChild(emailCell);
+            // row.appendChild(emailCell);
 
             // Append row to table body
             tableBody.appendChild(row);

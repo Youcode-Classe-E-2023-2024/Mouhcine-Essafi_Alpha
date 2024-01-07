@@ -28,3 +28,24 @@ if (loginform) {
       });
   });
 }
+
+function deleteUser(id){
+  fetch('https://jsonplaceholder.typicode.com/users/' + id, {
+      method: 'DELETE', 
+      headers: {
+          'Content-Type': 'application/json',
+      }
+  })
+  .then(res => {
+      if(res.status == 200) {
+          console.log(res.status);
+          Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "User deleted successfully",
+              showConfirmButton: false,
+              timer: 1500
+      });
+      }
+  })
+}

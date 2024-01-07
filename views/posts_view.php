@@ -121,111 +121,95 @@
             </div>
         </div>
     </div>
-    <!--END Sidebar -->
-
-    <!-- dashboard -->
-    <!-- <div class="absolute top-16 right-0 -my-2 overflow-x-auto w-10/12">
-      <div style="min-height: 578px;" class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg h-4/5">
-        <table class="min-w-full">
-          <thead>
-            <tr>
-              <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">ID</th>
-              <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Title</th>
-              <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Description</th>
-              <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">priority</th>
-              <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Status</th>
-              <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Creator</th>
-              <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Created At</th>
-              <th class="px-6 py-3 border-b-2 border-gray-300"></th> 
-            </tr>
-          </thead>
-          <tbody class="bg-white">
-          <tr>
-              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                <div class="flex items-center">
-                  <div>
-                    <div class="text-sm leading-5 text-gray-800">#1</div>
-                  </div>
-                </div>
-              </td>
-              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                <div class="text-sm leading-5 text-blue-900">Damilare Anjorin</div>
-              </td>
-              <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">damilareanjorin1@gmail.com</td>
-              <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">+2348106420637</td>
-              <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                  <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                  <span class="relative text-xs">active</span>
-                </span>
-              </td>
-              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
-              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                <div class="text-sm leading-5 text-blue-900">Damilare Anjorin</div>
-              </td>
-              <td class="py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View Details</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> -->
     <div class="absolute top-16 right-0 -my-2 overflow-x-auto w-4/5   ">
         <div style="min-height: 578px;" class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg h-4/5">
 
             <main id="manageUsers_index" class="p-4">
                 <section class="flex justify-between mb-4">
-                    <div class="text-2xl font-semibold">Users</div>
+                    <div class="text-2xl font-semibold">Posts</div>
                     <a href="/ManageUsers/addUser" class="flex items-center bg-blue-500 text-white p-2 rounded-md">
                         <ion-icon name="pencil-outline" role="img" class="md:hydrated mr-2"></ion-icon>
-                        <p>Add user</p>
+                        <p>Add Post</p>
                     </a>
                 </section>
 
-                <table id="usersTable" class="min-w-full bg-white border border-gray-300 shadow-md rounded-md overflow-hidden">
+                <table id="result-posts" class="min-w-full bg-white border border-gray-300 shadow-md rounded-md overflow-hidden">
                     <thead class="bg-gray-200 text-gray-700">
                         <tr>
-                            <th class="py-2 px-4">Id</th>
-                            <th class="py-2 px-4">username</th>
-                            <th class="py-2 px-4">email</th>
-                            <th class="py-2 px-4">phone</th>
-                            <th class="py-2 px-4">Action</th>
+                            <th>Title</th>
+                            <th>Body</th>
+                            <th>Author</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="postTableBody"></tbody>
                 </table>
             </main>
         </div>
     </div>
 </div>
+
 <script>
-    // manageUsers controller 
-const manageUsers_index = document.getElementById('manageUsers_index'); 
-if(manageUsers_index){
-    $(document).ready(function(){
-        // Initialize DataTable
-        $('#usersTable').DataTable({
-            "ajax": {
-                "url": "https://jsonplaceholder.typicode.com/users",
-                "dataSrc": "",
-                // "data": formData,
-                "type": 'GET',
-            },
-            "columns": [
-                {"data": "id"},
-                {"data": "username"},
-                {"data": "email"},
-                {"data": "phone"},
-                {
-                    data: 'id',
-                    render: function(data) {
-                        return `<button onclick="deleteUser(${data})" name="btn" class="text-red-500 hover:underline mr-2">delete</button>` +
-                            `<a href="/ManageUsers/editUser/${data}" class="delete_btn text-blue-500 hover:underline focus:outline-none focus:ring focus:border-red-300" data-id="' + data + '">edit</a>`;
-                    }
+        var users = [];
+
+        function createAndAppendPost(post) {
+            const tableBody = document.getElementById('postTableBody');
+
+            const row = document.createElement('tr');
+
+            // Title
+            const titleCell = document.createElement('td');
+            titleCell.textContent = post.title;
+
+            // Body
+            const bodyCell = document.createElement('td');
+            bodyCell.textContent = post.body;
+
+            // Author
+            const authorCell = document.createElement('td');
+            authorCell.appendChild(document.createTextNode(users[post.userId - 1].username));
+
+            // Email
+            const emailCell = document.createElement('td');
+            emailCell.textContent = users[post.userId - 1].email;
+
+            // Append cells to row
+            row.appendChild(titleCell);
+            row.appendChild(bodyCell);
+            row.appendChild(authorCell);
+            row.appendChild(emailCell);
+
+            // Append row to table body
+            tableBody.appendChild(row);
+        }
+
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
-            ]
-        }); 
-    });
-}
-</script>
+                return response.json();
+            })
+            .then(dataPost => {
+                fetch('https://jsonplaceholder.typicode.com/users')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(dataUsers => {
+                        users = dataUsers;
+
+                        dataPost.forEach(post => {
+                            createAndAppendPost(post);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error during users API request', error);
+                    });
+            })
+            .catch(error => {
+                console.error('Error during posts API request', error);
+            });
+    </script>

@@ -140,7 +140,6 @@
                             <th>Idpost</th>
                             <th>Title</th>
                             <th>Body</th>
-                            <!-- <th>Email</th> -->
                         </tr>
                     </thead>
                     <tbody id="postTableBody"></tbody>
@@ -150,7 +149,7 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
     var users = [];
 
     function createAndAppendPost(post) {
@@ -174,17 +173,11 @@
         const bodyCell = document.createElement('td');
         bodyCell.textContent = post.body;
 
-
-        // Email
-        const emailCell = document.createElement('td');
-        emailCell.textContent = users[post.userId - 1].email;
-
         // Append cells to row
         row.appendChild(authorCell);
         row.appendChild(Id_postCell);
         row.appendChild(titleCell);
         row.appendChild(bodyCell);
-        // row.appendChild(emailCell);
 
         // Append row to table body
         tableBody.appendChild(row);
@@ -219,4 +212,71 @@
         .catch(error => {
             console.error('Error during posts API request', error);
         });
-</script>
+</script> -->
+
+<script>
+        var users = [];
+
+        function createAndAppendPost(post) {
+            const tableBody = document.getElementById('postTableBody');
+
+            const row = document.createElement('tr');
+
+            // Author
+            const authorCell = document.createElement('td');
+            authorCell.appendChild(document.createTextNode(users[post.userId - 1].username));
+
+            // Title
+            const titleCell = document.createElement('td');
+            titleCell.textContent = post.title;
+
+            // Id post
+            const Id_postCell = document.createElement('td');
+            Id_postCell.textContent = post.id;
+
+            // Body
+            const bodyCell = document.createElement('td');
+            bodyCell.textContent = post.body;
+
+            // Append cells to row
+            row.appendChild(authorCell);
+            row.appendChild(Id_postCell);
+            row.appendChild(titleCell);
+            row.appendChild(bodyCell);
+
+            // Append row to table body
+            tableBody.appendChild(row);
+        }
+
+        $(document).ready(function () {
+            // Initialize DataTable
+            $('#result-posts').DataTable({
+                "ajax": {
+                    "url": "https://jsonplaceholder.typicode.com/posts",
+                    "dataSrc": "",
+                    "type": 'GET',
+                },
+                "columns": [
+                    { "data": "userId", "render": function (data) { return users[data - 1].username; } },
+                    { "data": "id" },
+                    { "data": "title" },
+                    { "data": "body" }
+                ]
+            });
+
+            // Fetch users data
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(dataUsers => {
+                    users = dataUsers;
+                })
+                .catch(error => {
+                    console.error('Error during users API request', error);
+                });
+        });
+    </script>

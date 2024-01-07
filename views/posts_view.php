@@ -151,72 +151,72 @@
 </div>
 
 <script>
-        var users = [];
+    var users = [];
 
-        function createAndAppendPost(post) {
-            const tableBody = document.getElementById('postTableBody');
+    function createAndAppendPost(post) {
+        const tableBody = document.getElementById('postTableBody');
 
-            const row = document.createElement('tr');
+        const row = document.createElement('tr');
 
-            // Author
-            const authorCell = document.createElement('td');
-            authorCell.appendChild(document.createTextNode(users[post.userId - 1].username));
+        // Author
+        const authorCell = document.createElement('td');
+        authorCell.appendChild(document.createTextNode(users[post.userId - 1].username));
 
-            // Title
-            const titleCell = document.createElement('td');
-            titleCell.textContent = post.title;
+        // Title
+        const titleCell = document.createElement('td');
+        titleCell.textContent = post.title;
 
-            // Id post
-            const Id_postCell = document.createElement('td');
-            Id_postCell.textContent = post.id;
+        // Id post
+        const Id_postCell = document.createElement('td');
+        Id_postCell.textContent = post.id;
 
-            // Body
-            const bodyCell = document.createElement('td');
-            bodyCell.textContent = post.body;
+        // Body
+        const bodyCell = document.createElement('td');
+        bodyCell.textContent = post.body;
 
 
-            // Email
-            const emailCell = document.createElement('td');
-            emailCell.textContent = users[post.userId - 1].email;
+        // Email
+        const emailCell = document.createElement('td');
+        emailCell.textContent = users[post.userId - 1].email;
 
-            // Append cells to row
-            row.appendChild(authorCell);
-            row.appendChild(Id_postCell);
-            row.appendChild(titleCell);
-            row.appendChild(bodyCell);
-            // row.appendChild(emailCell);
+        // Append cells to row
+        row.appendChild(authorCell);
+        row.appendChild(Id_postCell);
+        row.appendChild(titleCell);
+        row.appendChild(bodyCell);
+        // row.appendChild(emailCell);
 
-            // Append row to table body
-            tableBody.appendChild(row);
-        }
+        // Append row to table body
+        tableBody.appendChild(row);
+    }
 
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(dataPost => {
-                fetch('https://jsonplaceholder.typicode.com/users')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(dataUsers => {
-                        users = dataUsers;
+    fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(dataPost => {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(dataUsers => {
+                    users = dataUsers;
 
-                        dataPost.forEach(post => {
-                            createAndAppendPost(post);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error during users API request', error);
+                    dataPost.forEach(post => {
+                        createAndAppendPost(post);
                     });
-            })
-            .catch(error => {
-                console.error('Error during posts API request', error);
-            });
-    </script>
+                })
+                .catch(error => {
+                    console.error('Error during users API request', error);
+                });
+        })
+        .catch(error => {
+            console.error('Error during posts API request', error);
+        });
+</script>

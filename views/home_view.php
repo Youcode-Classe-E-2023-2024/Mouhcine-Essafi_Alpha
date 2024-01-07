@@ -30,7 +30,7 @@
             const authorDetails = document.createElement('div');
             const authorName = document.createElement('h3');
             authorName.className = 'text-sm font-medium';
-            authorName.textContent = users[post.userId - 1].name;
+            authorName.textContent = users[post.userId - 1].username;
 
             const postDate = document.createElement('time');
             postDate.className = 'text-sm dark:text-gray-400';

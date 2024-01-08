@@ -1,5 +1,5 @@
 <?php
-if ($_SESSION){
+if ($_SESSION['user_id']){
     header('location: index.php?page=login');
 }
 ?>

@@ -21,7 +21,7 @@ class UserRegistration
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Check if the username already exists
-        $checkQuery = "SELECT user_id FROM Utilisateur WHERE email = '$email'";
+        $checkQuery = "SELECT user_id FROM users WHERE email = '$email'";
         $checkResult = $this->db->query($checkQuery);
 
         if (!$checkResult) {
@@ -33,7 +33,7 @@ class UserRegistration
         }
 
         // Insert new user into the database
-        $insertQuery = "INSERT INTO Utilisateur (first_name, last_name, email, password) VALUES ('$first_name', '$last_name','$email', '$hashedPassword')";
+        $insertQuery = "INSERT INTO users (first_name, last_name, email, password) VALUES ('$first_name', '$last_name','$email', '$hashedPassword')";
         $insertResult = $this->db->query($insertQuery);
 
         if (!$insertResult) {

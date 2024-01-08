@@ -129,6 +129,7 @@
                             <th>Idpost</th>
                             <th>Title</th>
                             <th>Body</th>
+                            <th class="py-2 px-4">Action</th>
                         </tr>
                     </thead>
                     <tbody id="postTableBody"></tbody>
@@ -154,7 +155,14 @@
                     { "data": "userId", "render": function (data) { return users[data - 1].username; } },
                     { "data": "id" },
                     { "data": "title" },
-                    { "data": "body" }
+                    { "data": "body" },
+                    {
+                        data: 'id',
+                        render: function(data) {
+                            return `<button onclick="deletePost(${data})" name="btn" class="text-red-500 hover:underline mr-2">delete</button>` +
+                                `<a href="index.php?page=edit_post" class="delete_btn text-blue-500 hover:underline focus:outline-none focus:ring focus:border-red-300" data-id="' + data + '">edit</a>`;
+                        }
+                    }
                 ]
             });
 

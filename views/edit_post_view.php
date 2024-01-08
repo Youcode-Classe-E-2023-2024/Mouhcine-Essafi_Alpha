@@ -1,6 +1,6 @@
 <?php logout(); ?>
 <main>
-        <a href="/managePosts/index" class="flex items-center gap-1 bg-gray-200 p-2 rounded-md w-20 ">
+        <a href="index.php?page=posts" class="flex items-center gap-1 bg-gray-200 p-2 rounded-md w-20 ">
             <ion-icon name="play-back"></ion-icon>
             <div>
                 BACK 
@@ -11,7 +11,7 @@
             <h2 class="text-2xl font-semibold mb-4">Edit Post <?php ?></h2>
             <p class="text-gray-600 mb-6">Create a post with this form</p>
     
-            <form id="edit_post_form" action="/managePosts/editPost/<?php  ?>" method="post">
+            <form id="edit_post_form" action="index.php?page=posts" method="post">
                 <div class="mb-4">
                     <label for="title" class="block text-gray-600">Title: *</label>
                     <input type="text" name="title" value="<?php ?>" 

@@ -18,7 +18,7 @@ class UserLogin
         }
 
         // Retrieve user data from the database
-        $query = "SELECT user_id, password FROM utilisateur WHERE email = '$email'";
+        $query = "SELECT user_id, password FROM users WHERE email = '$email'";
         $result = $this->db->query($query);
 
         if (!$result) {

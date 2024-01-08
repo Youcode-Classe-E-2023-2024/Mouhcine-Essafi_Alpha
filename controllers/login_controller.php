@@ -9,6 +9,7 @@ if (isset($_POST['log_email'])) {
         // header('location: index.php?page=home');
         // echo $_POST['log_email'];
         echo 'valide';
+        $_SESSION['email'] = $_POST['log_email'];
         exit();
     } else {
         // header('location: index.php?page=login');

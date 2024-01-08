@@ -24,3 +24,9 @@ function dd($var) {
 function str_secure($str) {
     return trim(htmlspecialchars($str));
 }
+
+function logout(){
+    if (!$_SESSION){
+        header('location: index.php?page=login');
+    }
+}

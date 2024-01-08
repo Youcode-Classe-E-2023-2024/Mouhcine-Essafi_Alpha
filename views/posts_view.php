@@ -1,3 +1,4 @@
+<?php logout(); ?>
 <div class="bg-white">
     <nav class="bg-gray-900 fixed w-full top-0 z-10">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">

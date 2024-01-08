@@ -1,3 +1,4 @@
+<?php logout(); ?>
 <a href="/posts/index" class="flex items-center gap-1 bg-gray-200 p-2 rounded-md w-20 ">
         <ion-icon name="play-back"></ion-icon>
         <div>

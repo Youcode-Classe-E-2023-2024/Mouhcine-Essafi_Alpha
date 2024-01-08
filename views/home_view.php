@@ -1,3 +1,4 @@
+<?php logout(); ?>
 <div class="flex bg-gray-100 min-h-screen">
     <aside class="hidden sm:flex sm:flex-col">
         <div class="flex-grow flex flex-col justify-between text-gray-500 bg-black">
